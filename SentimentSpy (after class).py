@@ -25,6 +25,25 @@ while True:
         continue
 
     if user_input.lower() == "exit":
+        print(f"\n{Fore.CYAN}Before you go, here is your conversation history: {Style.RESET_ALL}")
+        if not conversation_history:
+            print("* no conversation history *")
+        else:
+            for idx, (text, polarity, sentiment_type) in enumerate(conversation_history,start = 1):
+
+                if sentiment_type == "Positive":
+                    color = Fore.GREEN
+                    emoji = "😀"
+                elif sentiment_type == "Negative":
+                    color = Fore.RED
+                    emoji = "🙁"
+                else:
+                    color = Fore.YELLOW
+                    emoji = "😐"
+
+                print(f"{idx}. {color}{emoji} {text}"
+                      f"Polarity: {polarity:.2f}, {sentiment_type}{Style.RESET_ALL}")
+        
         print(f"\n{Fore.BLUE} Exiting Sentiment Spy. Farewell, Agent {user_name}! {Style.RESET_ALL}")
         break
 
@@ -41,16 +60,26 @@ while True:
             print(f"{Fore.CYAN} Conversation History:{Style.RESET_ALL}")
             for idx, (text, polarity, sentiment_type) in enumerate(conversation_history,start = 1):
 
-                if sentiment_type == "Positive":
+                if polarity > 0.25:
+                    sentiment_type == "Positive"
                     color = Fore.GREEN
-                    emoji = "??"
-                elif sentiment_type == "Negative":
+                    emoji = "😀"
+                elif polarity < -0.25:
+                    sentiment_type == "Negative"
+                    color = Fore.LIGHTMAGENTA_EX
+                    emoji = "🙁"
+                elif polarity > 0.5:
+                    sentiment_type = "Very Positive"
+                    color = Fore.LIGHTGREEN_EX
+                    emoji = "😄"
+                elif polarity < - 0.5:
+                    sentiment_type = "Very Negative"
                     color = Fore.RED
-                    emoji = "??"
-
+                    emoji = "😡"
                 else:
+                    sentiment_type = "Neutral"
                     color = Fore.YELLOW
-                    emoji = "??"
+                    emoji = "😐"
 
                 print(f"{idx}. {color}{emoji} {text}"
                       f"Polarity: {polarity:.2f}, {sentiment_type}{Style.RESET_ALL}")
@@ -60,15 +89,23 @@ while True:
     if polarity > 0.25:
         sentiment_type = "Positive"
         color = Fore.GREEN
-        emoji = "??"
+        emoji = "😀"
     elif polarity < -0.25:
         sentiment_type = "Negative"
         color = Fore.RED
-        emoji = "??"
+        emoji = "🙁"
+    elif polarity > 0.5:
+        sentiment_type = "Very Positive"
+        color = Fore.LIGHTGREEN_EX
+        emoji = "😄"
+    elif polarity < - 0.5:
+        sentiment_type = "Very Negative"
+        color = Fore.LIGHTMAGENTA_EX
+        emoji = "😡"
     else:
         sentiment_type = "Neutral"
         color = Fore.YELLOW
-        emoji = "??"
+        emoji = "😐"
 
     conversation_history.append((user_input, polarity, sentiment_type))
 
