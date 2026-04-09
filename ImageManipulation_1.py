@@ -18,4 +18,3 @@ cropped_rgb = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB)
 plt.imshow(cropped_rgb)
 plt.title("Cropped Region")
 plt.show()
-
