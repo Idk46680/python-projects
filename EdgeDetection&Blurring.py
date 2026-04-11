@@ -49,7 +49,7 @@ def interactive_edge_detection(image_path):
 
         elif choice == "3":
             laplacian = cv2.Laplacian(gray_image, cv2.CV_64F)
-            display_image = ("Laplacian Edge Detection", np.abs(laplacian).astype(np.uint8))
+            display_image("Laplacian Edge Detection", np.abs(laplacian).astype(np.uint8))
 
         elif choice == "4":
             print("Adjust kernel size for Gaussian blur (must be odd, default: 5)")
@@ -70,4 +70,4 @@ def interactive_edge_detection(image_path):
         else:
             print("Invalid choice. Please select a number between 1 and 6.")
 
-interactive_edge_detection("/Users/byzeedmollah_/python projects/example (1).jpg")
+interactive_edge_detection('/Users/byzeedmollah_/python projects/example (1).jpg')
