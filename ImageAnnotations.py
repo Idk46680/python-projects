@@ -45,5 +45,3 @@ cv2.putText(image_rgb, f"Height: {height}px", height_label_position, font, 0.8, 
 plt.figure(figsize = (12, 8))
 plt.imshow(image_rgb)
 plt.title("Annoted Image with Regions, Centers and Bi-Directional Height Arrow")
-plt.axis('off')
-plt.show()
