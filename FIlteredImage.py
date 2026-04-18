@@ -14,7 +14,7 @@ def apply_color_filter(image,filter_type):
         filtered_image[:, :, 2] = 0
     
     elif filter_type == "green_tint":
-        filtered_image[:, :, 0] = 0
+        filtered_image[:, :, 0] =        0
         filtered_image[:, :, 2] = 0
 
     elif filter_type == "increase_red":
