@@ -18,10 +18,23 @@ def apply_color_filter(image,filter_type):
         filtered_image[:, :, 2] = 0
 
     elif filter_type == "increase_red":
-        filtered_image[:, :, 2] = cv2.add(filtered_image[:, :, 2], 50)
+        filtered_image[:, :, 2] = cv2.add(filtered_image[:, :, 2], 30)
     
     elif filter_type == "decrease_blue":
-        filtered_image[:, :, 0] = cv2.subtract(filtered_image[:, :, 0], 50)
+        filtered_image[:, :, 0] = cv2.subtract(filtered_image[:, :, 0], 30)
+
+    elif filter_type == "increase_blue":
+        filtered_image[:, :, 0] = cv2.add(filtered_image[:, :, 0], 30)
+
+    elif filter_type == "decrease_red":
+        filtered_image[:, :, 2] = cv2.subtract(filtered_image[:, :, 1], 30)
+
+    elif filter_type == "increase green":
+        filtered_image[:, :, 1] = cv2.add(filtered_image[:, :, 1], 30)
+
+    elif filter_type == "decrease_green":
+        filtered_image[:, :, 1] = cv2.subtract(filtered_image[:, :, 1], 30)
+
 
     return filtered_image
 
@@ -40,6 +53,10 @@ else:
     print("i - Increase Red Intensity")
     print("d - Decrease Blue Intensity")
     print("q - Quit")
+    print("p - Increase Blue Intensity")
+    print("l - Decrease Red Intensity")
+    print("m - Increase Green Intensity")
+    print("n - Decrease Green Intensity")
 
     while True:
         filtered_image = apply_color_filter(image, filter_type)
@@ -56,10 +73,18 @@ else:
             filter_type = "increase_red"
         elif key == ord('d'):
             filter_type = "decrease_blue"
+        elif key == ord('p'):
+            filter_type = "increase_blue"
+        elif key == ord('l'):
+            filter_type = "decrease_red"
+        elif key == ord('m'):
+            filter_type = "increase_green"
+        elif key == ord('n'):
+            filter_type = "decrease_green"
         elif key == ord('q'):
             print("Exiting...")
             break
         else:
-            print("Invalid Key! Please use 'r', 'b', 'g', 'i', 'd', or 'q'. ")
+            print("Invalid Key! Please use 'r', 'b', 'g', 'i', 'd', 'p', 'l', 'm', 'n' or 'q'. ")
 
 cv2.destroyAllWindows()
