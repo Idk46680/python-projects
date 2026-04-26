@@ -1,0 +1,7 @@
+sepia negative filter, (pencil) sketch filter, warm filter, cool filter
+
+Keys for filters:
+x = sepia negative filter
+z = sketch filter
+w = warm filter
+o = cool filter
