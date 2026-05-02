@@ -27,8 +27,8 @@ while True:
 
     if contours:
         max_contour = max(contours, key=cv2.contourArea)
-
         if cv2.contourArea(max_contour) > 500:
+
             x, y, w, h = cv2.boundingRect(max_contour)
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
