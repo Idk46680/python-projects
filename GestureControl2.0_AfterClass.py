@@ -8,12 +8,21 @@ if not cap.isOpened():
     exit()
 
 def count_fingers(contour):
+    epsilon = 0.01 * cv2.arcLength(contour, True)
+    contour = cv2.approxPolyDP(contour, epsilon, True)
+
+    if len(contour) < 4:
+        return 0
+    
     hull = cv2.convexHull(contour, returnPoints=False)
     
     if hull is None or len(hull) < 3:
         return 0
     
-    defects = cv2.convexityDefects(contour, hull)
+    try:
+        defects = cv2.convexityDefects(contour, hull)
+    except:
+        return 0
 
     if defects is None:
         return 0
