@@ -83,4 +83,4 @@ while True:
     cv2.imshow(MAIN, out)
     if cv2.waitKey(1) & 0xFF == ord("q"): break
 
-cap.release(); cv2.destroyAllWindows(); hands.close()
+cap.release(); cv2.destroyAllWindows(); hands.close()    
