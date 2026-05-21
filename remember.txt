@@ -1,0 +1,3 @@
+from this link, do the after class project: https://jsonplaceholder.typicode.com/
+
+in the after class project, give: id, name, username, email
